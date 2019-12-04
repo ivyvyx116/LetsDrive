@@ -5,41 +5,28 @@ using UnityEngine.UI;
 
 public class RandomMovement : MonoBehaviour
 {
-    private Vector3 tyreWorldPosition;
-    private Vector3 rotation;
     public GameObject ActivateLevel;
 
     public string missionDescription;
     public float missionMinute;
     public float missionSeconds;
 
-    // Start is called before the first frame update
-    void Start()
+    public MissionDescription md;
+    private void Start()
     {
- 
+        md = FindObjectOfType<MissionDescription>();
     }
-
-    /*
-    public void loadMission()
-    {
-        print("Start Mission");
-    }
-
-    IEnumerator activateTyres()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(0.01f);
-            //Instantiate(obstacle, transform.position, transform.rotation);
-        }
-    }*/
-
+    // activate mission when battery touched;
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
         {
-            print("start mission");
             ActivateLevel.SetActive(true);
+            // set canvas displays
+            md.NewMission(missionDescription, missionMinute,missionSeconds);
+            // set the description accordingly;
+            // set time;
+            // call timer and update
         }
     }
 }

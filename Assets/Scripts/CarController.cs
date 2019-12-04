@@ -9,6 +9,7 @@ public class CarController : MonoBehaviour
 	{
 		horizontalInput = Input.GetAxis("Horizontal");
 		verticalInput = Input.GetAxis("Vertical");
+        brakeInput = Input.GetKey(KeyCode.LeftShift);
 	}
 
     private void Steer()
@@ -20,8 +21,31 @@ public class CarController : MonoBehaviour
 
     private void Accelerate()
 	{
-        frontLeft.motorTorque = verticalInput * motorForce;
-        frontRight.motorTorque = verticalInput * motorForce;
+        if (brakeInput)
+        {
+            Brake();
+        }
+        else
+        {
+            frontLeft.motorTorque = verticalInput * motorForce;
+            frontRight.motorTorque = verticalInput * motorForce;
+        }
+    }
+
+    private void Brake()
+    {
+        var velocity = gameObject.GetComponent<Rigidbody>().velocity;
+        var localVel = transform.InverseTransformDirection(velocity);
+
+        print(gameObject.GetComponent<Rigidbody>().transform.forward);
+        if (localVel.z > 0)
+        {
+            gameObject.GetComponent<Rigidbody>().AddForce(-(transform.forward * brake));
+        }
+        else
+        {
+            gameObject.GetComponent<Rigidbody>().AddForce((transform.forward * brake));
+        }
     }
 
     private void UpdateWheelPoses()
@@ -53,7 +77,8 @@ public class CarController : MonoBehaviour
 
 	private float horizontalInput;
 	private float verticalInput;
-	private float steeringAngle;
+    private bool brakeInput;
+    private float steeringAngle;
 
 	public WheelCollider frontLeft, frontRight;
 	public WheelCollider backLeft, backRight;
@@ -61,4 +86,5 @@ public class CarController : MonoBehaviour
 	public Transform backLeftT, backRightT;
 	public float maxSteerAngle;
 	public float motorForce;
+    public float brake;
 }

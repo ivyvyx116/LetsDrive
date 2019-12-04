@@ -12,4 +12,9 @@ public class SettingsMenu : MonoBehaviour
         mainMixer.SetFloat("mainVolume", volume);
     }
 
+    public void SetTrack (float trackNum)
+    {
+        // set the corresponding track;
+    }
+
 }
