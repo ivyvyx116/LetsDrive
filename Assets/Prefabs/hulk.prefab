@@ -1086,7 +1086,8 @@ GameObject:
   m_Component:
   - component: {fileID: 806066878753590638}
   - component: {fileID: 7324465220058112020}
-  - component: {fileID: 473294201650345542}
+  - component: {fileID: -6575377738757366901}
+  - component: {fileID: -7104496686700189177}
   m_Layer: 0
   m_Name: hulk
   m_TagString: hulk
@@ -1101,9 +1102,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4428410997254274941}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 384.15173, y: 6.251, z: -864.9983}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 379.7, y: 6.251, z: -864.9983}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 3720428930307254951}
   - {fileID: 1228572329670197574}
@@ -1112,7 +1113,7 @@ Transform:
   - {fileID: 4841902071426049719}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!95 &7324465220058112020
 Animator:
   serializedVersion: 3
@@ -1132,7 +1133,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &473294201650345542
+--- !u!114 &-6575377738757366901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4428410997254274941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a33f7536817ba49a4bb8d16b3f9691e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypointArray: []
+  currentIndex: 0
+  speed: 4
+  animationTimer: 0
+  animationFPS: 5
+  dead: 0
+--- !u!65 &-7104496686700189177
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1143,8 +1162,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.9736633, y: 20.639965, z: 4.729004}
-  m_Center: {x: -0.14518738, y: 9.098211, z: 0.7000122}
+  m_Size: {x: 6.482239, y: 20.427376, z: 3.723999}
+  m_Center: {x: 0.22229004, y: 7.892376, z: -1.3619995}
 --- !u!1 &4511357460312609228
 GameObject:
   m_ObjectHideFlags: 0

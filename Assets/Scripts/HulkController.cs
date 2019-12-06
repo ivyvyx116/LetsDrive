@@ -5,13 +5,8 @@ using UnityEngine;
 public class HulkController : MonoBehaviour
 {
     public Transform[] waypointArray;
-    public Sprite idle;
-    public Sprite[] walking;
-    public Sprite[] explode;
-    public Sprite dying;
     public int currentIndex;
     Transform targetWaypoint;
-    SpriteRenderer SR;
     Collider PC;
     Rigidbody RB;
 
@@ -28,10 +23,8 @@ public class HulkController : MonoBehaviour
     void Start()
     {
         currentIndex = 0;
-        SR = gameObject.GetComponent<SpriteRenderer>();
         PC = gameObject.GetComponent<Collider>();
         RB = gameObject.GetComponent<Rigidbody>();
-        count = explode.Length;
     }
 
     // Update is called once per frame
@@ -47,19 +40,19 @@ public class HulkController : MonoBehaviour
         }
         if (!dead)
         {
-            PlayBackAnimation(walking);
+           
         }
-             
+
     }
 
     void walk()
     {
         transform.position = Vector3.MoveTowards(transform.position, targetWaypoint.position, speed * Time.deltaTime);
-        if(transform.position == targetWaypoint.position)
+        if (transform.position == targetWaypoint.position)
         {
             currentIndex++;
 
-            if(currentIndex >= waypointArray.Length)
+            if (currentIndex >= waypointArray.Length)
             {
                 currentIndex = 0;
             }
@@ -74,38 +67,9 @@ public class HulkController : MonoBehaviour
         transform.right = (targetWaypoint.position - transform.position).normalized;
     }
 
-    void PlayBackAnimation(Sprite[] anim)
-    {
-        animationTimer -= Time.deltaTime;
-        if(animationTimer <= 0 && anim.Length > 0)
-        {
-            animationTimer = 1f / animationFPS;
-            currentFrame++;
-            if(currentFrame >= anim.Length)
-            {
-                currentFrame = 0;
-            }
-            SR.sprite = anim[currentFrame];
-        }
-    }
 
     public void killer()
     {
-        StartCoroutine(getKilled(explode));
         dead = true;
-    }
-
-    IEnumerator getKilled(Sprite[] die)
-    {
-        SR.sprite = dying;
-        yield return new WaitForSeconds((float)0.75);
-        PC.enabled = false;
-
-        for(int i = 0; i < count; i++)
-        {
-            SR.sprite = die[i];
-            yield return new WaitForSeconds((float)0.075);
-        }
-        Destroy(gameObject);
     }
 }
