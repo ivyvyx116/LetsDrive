@@ -8,13 +8,16 @@ public class RandomMovement : MonoBehaviour
     public GameObject ActivateLevel;
 
     public string missionDescription;
-    public float missionMinute;
-    public float missionSeconds;
+    public int missionMinute;
+    public int missionSeconds;
 
     public MissionDescription md;
+    public MissionTimer mt;
+
     private void Start()
     {
         md = FindObjectOfType<MissionDescription>();
+        mt = FindObjectOfType<MissionTimer>();
     }
     // activate mission when battery touched;
     private void OnTriggerEnter(Collider other)
@@ -26,6 +29,7 @@ public class RandomMovement : MonoBehaviour
             md.NewMission(missionDescription, missionMinute,missionSeconds);
             // set the description accordingly;
             // set time;
+            mt.BeginTiming(missionMinute, missionSeconds);
             // call timer and update
         }
     }

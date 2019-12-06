@@ -21,14 +21,15 @@ public class MissionDescription : MonoBehaviour
     }
 
     // Retrieve and update the mission descriptions;
-    public void NewMission(string newDesc, float newMin, float newSec)
+    public void NewMission(string newDesc, int newMin, int newSec)
     {
         desc = newDesc;
         time = SetTime(newMin, newSec);
+        UpdateContents();
     }
 
     // Change time info to string;
-    string SetTime (float min, float sec)
+    string SetTime (int min, int sec)
     {
         return min.ToString() + ":" + sec.ToString() + ":0";
     }
@@ -36,7 +37,7 @@ public class MissionDescription : MonoBehaviour
     // Update the contents displayed on panel;
     void UpdateContents()
     {
-        wholeText = "Current Mission:\n\t" + desc + "Time Limit:\n\t" + time;
+        wholeText = "Current Mission:\n\t" + desc + "\nTime Limit:\n\t" + time;
         if (descriptions != null)
         {
             descriptions.text = wholeText;

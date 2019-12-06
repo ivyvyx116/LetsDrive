@@ -6,6 +6,7 @@ TagManager:
   tags:
   - battery
   - Obstacle
+  - hulk
   layers:
   - Default
   - TransparentFX

@@ -6,13 +6,14 @@ using UnityEngine.UI;
 public class MissionTimer : MonoBehaviour
 {
     public Text timer;
-    static int minutes = 5;
-    static int seconds = 0;
-    private int miliseconds = 0;
+    int minutes = 5;
+    int seconds = 0;
+    private float miliseconds = 0;
     private bool isTiming;
 
     private void Start()
     {
+        timer.text = "Level Roaming Time";
         isTiming = false;
     }
 
@@ -33,9 +34,12 @@ public class MissionTimer : MonoBehaviour
                 }
                 miliseconds = 100;
             }
-            miliseconds -= (int)Time.deltaTime * 100;
+
+            miliseconds -= Time.deltaTime * 100;
+
+            timer.text = string.Format("{0}:{1}:{2}", minutes, seconds, (int)miliseconds);
         }
-        timer.text = string.Format("{0}:{1}:{2}", minutes, seconds, (int)miliseconds);
+        
 
         // Timer color change
         if (minutes <= 0 && seconds <= 15)
@@ -47,18 +51,23 @@ public class MissionTimer : MonoBehaviour
             timer.color = Color.black;
         }
 
-        // state mission failed
-        // deactivate level, activate battery;
-        // stop timing
-        if (minutes == 0 && seconds == 0 && miliseconds == 0)
+        if (minutes == 0 && seconds == 0 && System.Math.Abs(miliseconds) < float.Epsilon)
         {
             isTiming = false;
+            TimeUp();
         }
     }
 
-    static void BeginTiming()
+    public void BeginTiming(int newMin, int newSec)
     {
-        //set numbers
-        // bool = true
+        minutes = newMin;
+        seconds = newSec;
+        isTiming = true;
+    }
+
+    void TimeUp()
+    {
+        timer.text = "Time's Up. Try Again.";
+        // deactivate level, activate battery;
     }
 }
