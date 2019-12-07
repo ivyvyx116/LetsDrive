@@ -13,6 +13,7 @@ public class RandomMovement : MonoBehaviour
 
     public MissionDescription md;
     public MissionTimer mt;
+    public int objectsToCollect;
 
     private void Start()
     {

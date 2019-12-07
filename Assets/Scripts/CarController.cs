@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
+    public MissionTimer mt;
 
+    public void Start()
+    {
+        mt = FindObjectOfType<MissionTimer>();
+    }
     public void GetInput()
 	{
 		horizontalInput = Input.GetAxis("Horizontal");
@@ -74,8 +79,30 @@ public class CarController : MonoBehaviour
 		Accelerate();
 		UpdateWheelPoses();
 	}
+    private void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag == "Collectable")
+        {
+            Destroy(col.gameObject);
+            // JINGLE SOUND
+            numToCollect--;
 
-	private float horizontalInput;
+            print("COLLECT " + numToCollect);
+
+            if (numToCollect <= 0)
+            {
+                print("You Win");
+                mt.timer.text = "You win!";
+            }
+
+        }
+        else if (col.gameObject.tag == "battery")
+        {
+            numToCollect = col.gameObject.GetComponent<RandomMovement>().objectsToCollect;
+        }
+    }
+
+    private float horizontalInput;
 	private float verticalInput;
     private bool brakeInput;
     private float steeringAngle;
@@ -87,4 +114,6 @@ public class CarController : MonoBehaviour
 	public float maxSteerAngle;
 	public float motorForce;
     public float brake;
+
+    private int numToCollect;
 }

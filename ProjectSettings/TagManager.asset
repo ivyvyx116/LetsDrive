@@ -8,6 +8,7 @@ TagManager:
   - Obstacle
   - hulk
   - bolt
+  - Collectable
   layers:
   - Default
   - TransparentFX
