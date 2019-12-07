@@ -20,18 +20,4 @@ public class RandomMovement : MonoBehaviour
         md = FindObjectOfType<MissionDescription>();
         mt = FindObjectOfType<MissionTimer>();
     }
-    // activate mission when battery touched;
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Player"))
-        {
-            ActivateLevel.SetActive(true);
-            // set canvas displays
-            md.NewMission(missionDescription, missionMinute,missionSeconds);
-            // set the description accordingly;
-            // set time;
-            mt.BeginTiming(missionMinute, missionSeconds);
-            // call timer and update
-        }
-    }
 }

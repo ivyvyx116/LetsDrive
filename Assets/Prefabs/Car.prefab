@@ -103,7 +103,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.47730505, g: 0.5191497, b: 0.5849056, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -117,7 +117,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 800
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -2490,9 +2490,10 @@ GameObject:
   - component: {fileID: 674530424295169151}
   - component: {fileID: 674530424295169144}
   - component: {fileID: 674530424295169145}
+  - component: {fileID: 1553343142}
   m_Layer: 0
   m_Name: Car
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2506,7 +2507,7 @@ Transform:
   m_GameObject: {fileID: 7910274430468783832}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 54.562634, y: 10, z: 10.834498}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2252045990447598212}
   - {fileID: 7342508719291559568}
@@ -2525,7 +2526,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 800
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -2556,16 +2557,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1488a119345489bbffb266019ba68a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontLeft: {fileID: 0}
-  frontRight: {fileID: 0}
-  backLeft: {fileID: 0}
-  backRight: {fileID: 0}
-  frontLeftT: {fileID: 0}
-  frontRightT: {fileID: 0}
-  backLeftT: {fileID: 0}
-  backRightT: {fileID: 0}
-  maxSteerAngle: 0
-  motorForce: 0
+  mt: {fileID: 0}
+  frontLeft: {fileID: 2605629911833403071}
+  frontRight: {fileID: 7528786482403766725}
+  backLeft: {fileID: 706473127767912953}
+  backRight: {fileID: 12913472967284858}
+  frontLeftT: {fileID: 7912506978397606580}
+  frontRightT: {fileID: 7912331034293510806}
+  backLeftT: {fileID: 7913008264620661200}
+  backRightT: {fileID: 7913258911331601826}
+  maxSteerAngle: 30
+  motorForce: 25000
+  brake: 10000
+  numToCollect: 0
+--- !u!114 &1553343142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7910274430468783832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46948f176ef14d7ea44cb37501c6b2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7910559907554513236
 GameObject:
   m_ObjectHideFlags: 0
