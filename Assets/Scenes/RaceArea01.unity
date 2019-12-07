@@ -4683,6 +4683,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 555318874, guid: fdf643b7e57fb9f498ade64169c21613, type: 3}
+      propertyPath: ActivateLevel
+      value: 
+      objectReference: {fileID: 1293250765}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdf643b7e57fb9f498ade64169c21613, type: 3}
 --- !u!4 &178173785 stripped
@@ -26972,7 +26976,7 @@ PrefabInstance:
     - target: {fileID: 2631158026716606674, guid: 64de8f5b9f7d3465fba244ff3ddfcbb6,
         type: 3}
       propertyPath: levelCount
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2631158026716606674, guid: 64de8f5b9f7d3465fba244ff3ddfcbb6,
         type: 3}
@@ -28129,11 +28133,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ActivateLevel
       value: 
-      objectReference: {fileID: 531686274}
+      objectReference: {fileID: 145883194}
     - target: {fileID: -6591442045108409132, guid: 4f404388f9a34413f9236233f0963294,
         type: 3}
       propertyPath: objectsToCollect
-      value: 2
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: -6591442045108409132, guid: 4f404388f9a34413f9236233f0963294,
         type: 3}
@@ -32327,6 +32331,18 @@ PrefabInstance:
       propertyPath: ActivateLevel
       value: 
       objectReference: {fileID: 2053677865}
+    - target: {fileID: 555318874, guid: fdf643b7e57fb9f498ade64169c21613, type: 3}
+      propertyPath: objectsToCollect
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 555318874, guid: fdf643b7e57fb9f498ade64169c21613, type: 3}
+      propertyPath: missionSeconds
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 555318874, guid: fdf643b7e57fb9f498ade64169c21613, type: 3}
+      propertyPath: missionMinute
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdf643b7e57fb9f498ade64169c21613, type: 3}
 --- !u!4 &1121428966 stripped
@@ -34661,6 +34677,11 @@ PrefabInstance:
       propertyPath: ActivateLevel
       value: 
       objectReference: {fileID: 216879452}
+    - target: {fileID: -6591442045108409132, guid: 4f404388f9a34413f9236233f0963294,
+        type: 3}
+      propertyPath: missionMinute
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f404388f9a34413f9236233f0963294, type: 3}
 --- !u!1001 &1197669443
@@ -35913,6 +35934,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5000004
       objectReference: {fileID: 0}
+    - target: {fileID: 555318874, guid: fdf643b7e57fb9f498ade64169c21613, type: 3}
+      propertyPath: ActivateLevel
+      value: 
+      objectReference: {fileID: 454442882}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdf643b7e57fb9f498ade64169c21613, type: 3}
 --- !u!4 &1236917629 stripped
@@ -43345,7 +43370,7 @@ PrefabInstance:
     - target: {fileID: 7912596594547024148, guid: f1287d609132848b48efd4e54ab60ced,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 738
+      value: 405.12
       objectReference: {fileID: 0}
     - target: {fileID: 7912596594547024148, guid: f1287d609132848b48efd4e54ab60ced,
         type: 3}
@@ -43355,7 +43380,7 @@ PrefabInstance:
     - target: {fileID: 7912596594547024148, guid: f1287d609132848b48efd4e54ab60ced,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -516.5
+      value: -570.91
       objectReference: {fileID: 0}
     - target: {fileID: 7912596594547024148, guid: f1287d609132848b48efd4e54ab60ced,
         type: 3}
@@ -64151,7 +64176,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ActivateLevel
       value: 
-      objectReference: {fileID: 1700879294}
+      objectReference: {fileID: 1119915313}
     - target: {fileID: -6591442045108409132, guid: 4f404388f9a34413f9236233f0963294,
         type: 3}
       propertyPath: missionDescription
@@ -64161,6 +64186,11 @@ PrefabInstance:
         type: 3}
       propertyPath: missionMinute
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -6591442045108409132, guid: 4f404388f9a34413f9236233f0963294,
+        type: 3}
+      propertyPath: objectsToCollect
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 5335877935287523306, guid: 4f404388f9a34413f9236233f0963294,
         type: 3}

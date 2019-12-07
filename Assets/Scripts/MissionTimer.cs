@@ -88,7 +88,10 @@ public class MissionTimer : MonoBehaviour
             timer.text = "You Win This Round!\nGo Find Another Battery!";
             timer.color = Color.black;
             isTiming = false;
-            levelCount--;
+            if (car.GetComponent<CarController>().battery.GetComponent<MeshRenderer>().material.color != Color.green)
+            {
+                levelCount--;
+            }
             car.GetComponent<CarController>().resetTrack();
             car.GetComponent<CarController>().battery.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.green);
         }
