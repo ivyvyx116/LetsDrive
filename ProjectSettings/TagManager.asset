@@ -9,6 +9,7 @@ TagManager:
   - hulk
   - bolt
   - Collectable
+  - music
   layers:
   - Default
   - TransparentFX
