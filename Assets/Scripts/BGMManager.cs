@@ -13,14 +13,6 @@ public class BGMManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        if(instance != null && instance != this)
-        {
-            Destroy(this.gameObject);
-            return;
-        } else
-        {
-            instance = this;
-        }
         DontDestroyOnLoad(this.gameObject);
     }
 }

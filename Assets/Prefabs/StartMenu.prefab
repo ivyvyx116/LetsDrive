@@ -325,7 +325,18 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 570681945329057123}
+        m_MethodName: PlayA
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Dropdown+DropdownEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_AlphaFadeSpeed: 0.15
@@ -866,6 +877,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMixer: {fileID: 24100000, guid: ec59b4be88c4c43238f67908b1b18717, type: 2}
+  BGM: {fileID: 0}
+  songs:
+  - {fileID: 8300000, guid: fdf9d7348cbcf4daf8073727ecb2a928, type: 3}
+  - {fileID: 8300000, guid: b084ed2c9e38249c0b3318dd545831c8, type: 3}
+  - {fileID: 8300000, guid: 89ae31b63f8e54bc494c03290a0c8e32, type: 3}
 --- !u!1 &3546743827317770176
 GameObject:
   m_ObjectHideFlags: 0
