@@ -2,31 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class MissionTimer : MonoBehaviour
 {
     public Text timer;
-    public int minutes = 5;
-    public int seconds = 0;
+    int minutes = 5;
+    int seconds = 0;
     private float miliseconds = 0;
-    public bool isTiming;
-    public int levelCount;
-    public GameObject car;
+    private bool isTiming;
 
     private void Start()
     {
-        Roam();
+        timer.text = "Level Roaming Time";
+        isTiming = false;
     }
 
     void Update()
     {
-        if (minutes < 0)
-        {
-            isTiming = false;
-            TimeUp();
-        }
-
         if (isTiming)
         {
             if (miliseconds <= 0)
@@ -58,6 +50,12 @@ public class MissionTimer : MonoBehaviour
         {
             timer.color = Color.black;
         }
+
+        if (minutes == 0 && seconds == 0 && System.Math.Abs(miliseconds) < float.Epsilon)
+        {
+            isTiming = false;
+            TimeUp();
+        }
     }
 
     public void BeginTiming(int newMin, int newSec)
@@ -67,39 +65,9 @@ public class MissionTimer : MonoBehaviour
         isTiming = true;
     }
 
-    public void TimeUp()
+    void TimeUp()
     {
-        timer.color = Color.black;
         timer.text = "Time's Up. Try Again.";
-        isTiming = false;
-        car.GetComponent<CarController>().resetTrack();
         // deactivate level, activate battery;
-    }
-
-    public void Win()
-    {
-        if (levelCount <= 1)
-        {
-            SceneManager.LoadScene(2);
-        }
-        else
-        {
-            timer.color = Color.black;
-            timer.text = "You Win This Round!\nGo Find Another Battery!";
-            timer.color = Color.black;
-            isTiming = false;
-            if (car.GetComponent<CarController>().battery.GetComponent<MeshRenderer>().material.color != Color.green)
-            {
-                levelCount--;
-            }
-            car.GetComponent<CarController>().resetTrack();
-            car.GetComponent<CarController>().battery.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.green);
-        }
-    }
-
-    void Roam()
-    {
-        timer.text = "Level Roaming Time";
-        isTiming = false;
     }
 }
