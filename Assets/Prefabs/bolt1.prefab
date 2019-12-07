@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4403183064653548606}
   - component: {fileID: 7398359275894994794}
   - component: {fileID: 2754250335881351094}
-  - component: {fileID: 4863921313149409741}
+  - component: {fileID: 1328053715601036717}
   m_Layer: 0
   m_Name: bolt1
   m_TagString: Collectable
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b8f7b3bac8843deb835e947c6aeea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &4863921313149409741
+--- !u!65 &1328053715601036717
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,7 +116,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2677365409717614818}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.011547219, y: 0.0100001795, z: 0.01318206}

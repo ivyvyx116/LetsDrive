@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-    public MissionTimer mt;
-
+    public GameObject[] tracks;
     public void Start()
     {
         mt = FindObjectOfType<MissionTimer>();
+        foreach (GameObject track in tracks){
+            track.SetActive(false);
+        }
     }
     public void GetInput()
 	{
@@ -79,11 +81,13 @@ public class CarController : MonoBehaviour
 		Accelerate();
 		UpdateWheelPoses();
 	}
-    private void OnCollisionEnter(Collision col)
+
+    private void OnTriggerEnter(Collider col)
     {
+        print("sTART " + numToCollect);
         if (col.gameObject.tag == "Collectable")
         {
-            Destroy(col.gameObject);
+            col.gameObject.SetActive(false);
             // JINGLE SOUND
             numToCollect--;
 
@@ -91,15 +95,30 @@ public class CarController : MonoBehaviour
 
             if (numToCollect <= 0)
             {
-                print("You Win");
-                mt.timer.text = "You win!";
+                mt.GetComponent<MissionTimer>().Win();
             }
-
         }
         else if (col.gameObject.tag == "battery")
         {
-            numToCollect = col.gameObject.GetComponent<RandomMovement>().objectsToCollect;
+            battery = col.gameObject;
+            batteryScript = battery.GetComponent<RandomMovement>();
+            print("bat " + batteryScript.ActivateLevel);
+            batteryScript.ActivateLevel.SetActive(true);
+            // set canvas displays
+            batteryScript.md.NewMission(batteryScript.missionDescription, batteryScript.missionMinute, batteryScript.missionSeconds);
+            // set the description accordingly;
+            // set time;
+            batteryScript.mt.BeginTiming(batteryScript.missionMinute, batteryScript.missionSeconds);
+            // call timer and update
+            numToCollect = batteryScript.objectsToCollect;
+            battery.SetActive(false);
         }
+    }
+
+    public void resetTrack()
+    {
+        battery.SetActive(true);
+        battery.GetComponent<RandomMovement>().ActivateLevel.SetActive(false);
     }
 
     private float horizontalInput;
@@ -115,5 +134,8 @@ public class CarController : MonoBehaviour
 	public float motorForce;
     public float brake;
 
-    private int numToCollect;
+    public int numToCollect;
+    public MissionTimer mt;
+    public GameObject battery;
+    private RandomMovement batteryScript;
 }
