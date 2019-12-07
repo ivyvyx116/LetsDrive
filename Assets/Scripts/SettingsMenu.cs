@@ -19,16 +19,10 @@ public class SettingsMenu : MonoBehaviour
         mainMixer.SetFloat("mainVolume", volume);
     }
 
-    public void PlayA ()
+    public void SetTrack (int trackNum)
     {
-        BGM.clip = songs[0];
-    }
-    public void PlayB()
-    {
-        BGM.clip = songs[1];
-    }
-    public void PlayC()
-    {
-        BGM.clip = songs[2];
+        BGM.Stop();
+        BGM.clip = songs[trackNum];
+        BGM.Play();
     }
 }
