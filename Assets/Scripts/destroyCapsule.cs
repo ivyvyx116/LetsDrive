@@ -15,11 +15,6 @@ public class destroyCapsule : MonoBehaviour
         if (other.CompareTag("Obstacle"))
         {
             Destroy(other.gameObject);
-        }
-
-        if (other.CompareTag("battery"))
-        {
-            Destroy(other.gameObject);
         }   
     }
 }
